@@ -1,22 +1,27 @@
+
 function add(number)
-{	
-    if(number == "")
-    {
+{
+	if(number == ""){
     	return 0;
 	}
-
-	if(number.includes(","))
+  	
+  	if(number.includes(","))
     {
         var numberArray = number.split(",");
-        return parseInt(numberArray[0]) + parseInt(numberArray[1]);
+        var total = 0;
+        
+        for(var i = 0; i < numberArray.length; i++)
+        {
+        	total += parseInt(numberArray[i]);
+    	}
+    	
+    	return total;
     }
-    
     else
     {
         return parseInt(number);
     }
+}
 
-	return parseInt(number);
- }	
+module.exports = add;
 
-module.exports = add; 
