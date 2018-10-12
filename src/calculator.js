@@ -7,9 +7,7 @@ function add(numbers)
   	
   	if(numbers.includes(",") || numbers.includes("\n"))
     {
-    	numbers = numbers.replace(/\n/g,",");
-    	
-        var numberArray = numbers.split(",");
+    	var numberArray = createArray(numbers);
         return sum(numberArray);
     }
 
@@ -29,6 +27,14 @@ function sum(numberArray)
     }
 
     return total;
+}
+
+function createArray(numbers)
+{
+  	numbers = numbers.replace(/\n/g,",");
+  	
+    var numberArray = numbers.split(",");
+    return numberArray;
 }
 
 module.exports = add;
