@@ -13,6 +13,10 @@ function add(numbers)
 
     else
     {
+    	if(numbers < 0)
+    	{
+    		throw "Negative numbers are not allowed: " + numbers;
+    	}
         return parseInt(numbers);
  	}
 }
@@ -32,8 +36,22 @@ function sum(numberArray)
 function createArray(numbers)
 {
   	numbers = numbers.replace(/\n/g,",");
-  	
+
     var numberArray = numbers.split(",");
+    var negNumArray = [];
+  
+    for(var i = 0; i < numberArray.length; i++)
+    {
+        if(parseInt(numberArray[i]) < 0){
+        	negNumArray.push(numberArray[i]);    	
+        }
+    }
+ 
+    if(negNumArray.length > 0)
+    {
+      	throw "Negative numbers are not allowed: " + negNumArray.join(",");
+    }
+
     return numberArray;
 }
 
