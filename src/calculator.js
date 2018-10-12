@@ -40,16 +40,7 @@ function createArray(numbers)
     	numbers = numbers.replace(/\n/g,",");
     }
     
-    var tmpNumberArray = numbers.split(",");
-    var numberArray = [];
-
-   	for(var i = 0; i < tmpNumberArray.length; i++)
-    {
-        if(parseInt(tmpNumberArray[i]) <= 1000){
-        	numberArray.push(tmpNumberArray[i]);
-        }	
-    }
-    
+    var numberArray = ignoreBig(numbers);
 	checkNegativity(numberArray);
     
     return numberArray; 
@@ -70,6 +61,21 @@ function checkNegativity(numberArray)
     {
       	throw "Negative numbers are not allowed: " + negNumArray.join(",");
     }
+}
+
+function ignoreBig(numbers)
+{
+	var tmpNumberArray = numbers.split(",");
+    var numberArray = [];
+
+   	for(var i = 0; i < tmpNumberArray.length; i++)
+    {
+        if(parseInt(tmpNumberArray[i]) <= 1000)
+        {
+        	numberArray.push(tmpNumberArray[i]);
+        }	
+    }
+    return numberArray;
 }
 
 module.exports = add;
