@@ -1,6 +1,6 @@
 function add(numbers)
 {
-	if(numbers == "")
+	if(numbers == "" || numbers > 1000)
 	{
     	return 0;
 	}
@@ -40,7 +40,15 @@ function createArray(numbers)
     	numbers = numbers.replace(/\n/g,",");
     }
     
-    var numberArray = numbers.split(",");
+    var tmpNumberArray = numbers.split(",");
+    var numberArray = [];
+
+   	for(var i = 0; i < tmpNumberArray.length; i++)
+    {
+        if(parseInt(tmpNumberArray[i]) <= 1000){
+        	numberArray.push(tmpNumberArray[i]);
+        }	
+    }
     
 	checkNegativity(numberArray);
     
@@ -52,7 +60,8 @@ function checkNegativity(numberArray)
 	var negNumArray = [];
 	for(var i = 0; i < numberArray.length; i++)
     {
-        if(parseInt(numberArray[i]) < 0){
+        if(parseInt(numberArray[i]) < 0)
+        {
         	negNumArray.push(numberArray[i]);    	
         }
     }
