@@ -24,3 +24,8 @@ it("should handle numbers being split by newline", () =>
 {
     expect(add("1\n2")).toBe(3);
 });
+
+it("should handle numbers being split by newline and comma in the same string", () =>
+{
+    expect(add("1\n2,3")).toBe(6);
+});
