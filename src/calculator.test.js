@@ -30,13 +30,15 @@ it("should handle numbers being split by newline and comma in the same string", 
     expect(add("1\n2,3")).toBe(6);
 });
 
-it("should throw Negative numbers are not allowed exception when input includes one number that is a negative", function () {
+it("should throw Negative numbers are not allowed exception when input includes one number that is a negative", function () 
+{
    expect(function() {
          add("-1");
     }).toThrow("Negative numbers are not allowed: -1" );
 });
 
-it("should throw Negative numbers are not allowed exception when input includes negatives", function () {
+it("should throw Negative numbers are not allowed exception when input includes negatives", function () 
+{
    expect(function() {
          add("-1,-2,-3");
     }).toThrow("Negative numbers are not allowed: -1,-2,-3");
