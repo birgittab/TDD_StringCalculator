@@ -35,12 +35,22 @@ function sum(numberArray)
 
 function createArray(numbers)
 {
-  	numbers = numbers.replace(/\n/g,",");
-
+	if(numbers.includes("\n"))
+    {
+    	numbers = numbers.replace(/\n/g,",");
+    }
+    
     var numberArray = numbers.split(",");
-    var negNumArray = [];
-  
-    for(var i = 0; i < numberArray.length; i++)
+    
+	checkNegativity(numberArray);
+    
+    return numberArray; 
+}
+
+function checkNegativity(numberArray)
+{
+	var negNumArray = [];
+	for(var i = 0; i < numberArray.length; i++)
     {
         if(parseInt(numberArray[i]) < 0){
         	negNumArray.push(numberArray[i]);    	
@@ -51,8 +61,6 @@ function createArray(numbers)
     {
       	throw "Negative numbers are not allowed: " + negNumArray.join(",");
     }
-
-    return numberArray;
 }
 
 module.exports = add;
