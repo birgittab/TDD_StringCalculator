@@ -4,6 +4,16 @@ function add(numbers)
 	{
     	return 0;
 	}
+
+	var prefix = numbers.substring(0,2);
+    if(prefix == "//")
+    {
+        var split = numbers.substr(0,numbers.indexOf("\n"));
+        var split2 = numbers.substr(numbers.indexOf('\n')+1);
+        var parameter = split.substring(2);
+        var numbers = split2; 
+        numbers = numbers.replace(parameter,",");
+    }
   	
   	if(numbers.includes(",") || numbers.includes("\n"))
     {
